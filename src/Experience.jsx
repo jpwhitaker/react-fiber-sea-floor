@@ -1,21 +1,10 @@
 import * as THREE from 'three'
-import { Suspense, useState } from 'react'
+import { useState } from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
-import { OrbitControls, Stage, Sparkles, useVideoTexture, Text3D, Center } from '@react-three/drei'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { OrbitControls, Sparkles, useVideoTexture, Text3D, Center } from '@react-three/drei'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
-import UnderwaterObjects from './UnderwaterObjects'
 import { PlainAnimator } from "three-plain-animator/lib/plain-animator"
-import Seaweed01 from './meshes/Seaweed01'
-import Seaweed02 from './meshes/Seaweed02'
-import Seaweed03 from './meshes/Seaweed03'
-import Crab from './meshes/Crab'
-import Rock01 from './meshes/Rock01'
-
-
-
-
-
+import SeaObj from './meshes/SeaObj'
 
 function Sprite({ textureSrc, IconPosition, IconSize }) {
   const spriteTexture = useLoader(THREE.TextureLoader, textureSrc)
@@ -28,10 +17,8 @@ function Sprite({ textureSrc, IconPosition, IconSize }) {
 }
 
 export default function Experience() {
-
-  const model = useLoader(GLTFLoader, './uploads_files_3661723_Tile_pack_environment_4.glb')
   const colorMap = useLoader(TextureLoader, './3s0F.gif')
-  const videoTexture = useVideoTexture("./water-grayscale-darker.mp4")
+  const videoTexture = useVideoTexture("./water-grayscale-darker-2.mp4")
   videoTexture.needsUpdate = true;
 
   return (
@@ -54,8 +41,8 @@ export default function Experience() {
         /** Movement factor (default: 1) */
       />
       
-      <spotLight position={[0, 20, 0]} intensity={1} color="#fff" map={videoTexture} penumbra={0.5} castShadow />
-      <ambientLight intensity={0.4} />
+      <spotLight position={[0, 20, 0]} intensity={2} color="#fff" map={videoTexture} penumbra={0.5} castShadow />
+      <ambientLight intensity={.5} />
       
         <OrbitControls maxPolarAngle = {Math.PI/2}/>
 
@@ -71,12 +58,19 @@ export default function Experience() {
           <meshStandardMaterial color="yellow"/>
         </mesh>
 
-        {/* <primitive object={model.scene}/> */}
-        <Seaweed01 position={[-3,0,0]}/>
-        <Seaweed02 position={[-9.5,0,-7]}/>
-        <Seaweed03 position={[-8,0,-6]}/>
-        <Crab position={[1,0,-1]}/>
-        <Rock01 position={[0,0,-2]}/>
+        <SeaObj name="seaweed001" position={[-3,0,-.3]}/>
+        <SeaObj name="seaweed002" position={[-4,0,-15]}/>
+        <SeaObj name="seaweed008" position={[12,0,-20]}/>
+        <SeaObj name="seaweed009" position={[-3,0,-6]}/>
+        <SeaObj name="seaweed010" position={[6,0,2]}/>
+        <SeaObj name="seaweed011" position={[-1,0,-2]}/>
+        <SeaObj name="Crab" position={[2.1,.58,1.3]} rotateY={-.8} bones="Bone001_4"/>
+        <SeaObj name="octopus" position={[-4,0,0]} rotateY={.8} bones="Bone_3"/>
+        <SeaObj name="rock" position={[-2.8,0,0.08]}/>
+        <SeaObj name="rock001" position={[-0.8,0,-1]}/>
+        <SeaObj name="rock002" position={[4,0,-2]}/>
+        <SeaObj name="seaweed008" position={[4.4,0,-1.8]}/>
+        <SeaObj name="rock018" position={[1,0,0.5]} />
       <Center disableY>
         <Text3D font="./Kalam_Bold.json" position={[0,2,0]}>
           Oćeane
