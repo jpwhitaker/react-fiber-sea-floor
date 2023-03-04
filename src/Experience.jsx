@@ -1,10 +1,12 @@
 import * as THREE from 'three'
 import { useState } from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
-import { PerspectiveCamera,ScrollControls, Scroll, Sparkles, useVideoTexture, Text3D, Center, Float, Text } from '@react-three/drei'
+import { PerspectiveCamera,ScrollControls, Scroll, Sparkles, useVideoTexture, Text3D, Center, Float, Text, Cylinder, Sphere, QuadraticBezierLine } from '@react-three/drei'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { PlainAnimator } from "three-plain-animator/lib/plain-animator"
 import Model from './models/Model'
+import Jellyfish from './Jellyfish'
+
 
 
 function Sprite({ textureSrc, IconPosition, IconSize }) {
@@ -58,6 +60,7 @@ export default function Experience() {
             <Model model="Coral_reef_003" scale={1} position={[5,0,1]} />
             <Model model="Seaweed_007" scale={1} position={[11,0,-28.0]} />
             <Model model="Coral_reef_004" scale={1} position={[-5,0,0]} rotation={[0,3.5,0]}/>
+            
             {/* <Model model="Coral_001" scale={3}/>
             <Model model="Coral_001" scale={3} position={[3,0,0]}/> */}
             {/* <Model model="Rock_021" scale={1} position={[-4.8,3,-2.5]} rotation={[0,.8,0]}/> */}
@@ -67,8 +70,19 @@ export default function Experience() {
             <Model model="Coral_026" scale={1} position={[-4.9,6.8,-1.3]} rotation={[1,-3,0]}/>
             <Model model="Coral_005" scale={1} position={[-6.7,10.7,-2.5]} rotation={[1,0,-1.6]}/>
             <Float rotationIntensity={0.5}>
-            <Model model="Medusa_001" scale={1} position={[-2,10.7,-0.5]} rotation={[0,0,0]}/>
+            {/* <Model model="Medusa_001" scale={1} position={[-2,10.7,-0.5]} rotation={[0,0,0]}/> */}
+            <Jellyfish position={[-2,10.7,-0.5]}/>
             </Float>
+
+            <Model model="Octopus_001" scale={1} position={[-2,0,1]} rotation={[0,.8,0]}/>
+            <group position={[0,0,0]}>
+              <Cylinder position={[-1,0,1]} rotation={[0,0,0]} args={[0.03, 0.03, 1, 32]} material-color="#222" />
+              <Cylinder position={[-1,0.5,1]} rotation={[1.6,0,1]} args={[0.04, 0.02, 0.6, 32]} material-color="#222" />
+              <Sphere args={[0.08, 10,10]} position={[-1.25,0.49,1.15]}>
+                <meshStandardMaterial color="#000"  />
+              </Sphere>
+
+            </group>
             <Model model="Coral_reef_006" scale={1} position={[16.5,0,-13]} rotation={[0,-0.5,0]}/>
             {/* <Model model="Seaweed_001" scale={1} position={[12,0,-17]} rotation={[0,0,0]}/> */}
             <Model model="Seaweed_002" scale={1} position={[13,0,-16]} rotation={[0,0,0]}/>
@@ -77,13 +91,13 @@ export default function Experience() {
 
 
             <Float floatIntensity={0.5}>
-              <Text3D font="./Kalam_Bold.json" position={[-3,4.5,1]} >
+              <Text3D font="./Kalam_Bold.json" position={[-3,5.5,1]} >
                 Oćeane
                 <meshLambertMaterial fog={false}/>
               </Text3D>
             </Float>
             <Float rotationIntensity={0.2} floatIntensity={0.5}>
-              <Text color="white" anchorX="center" anchorY="middle" fontSize={.2} position={[0,4,1]} maxWidth={6} >
+              <Text color="white" anchorX="center" anchorY="middle" fontSize={.2} position={[0,5,1]} maxWidth={6} >
               <meshBasicMaterial          
                 color={"#FFF"}
                 fog={false}
@@ -93,7 +107,7 @@ export default function Experience() {
             </Float>
 
             <Float rotationIntensity={0.2} floatIntensity={0.5}>
-              <Text color="white" anchorX="center" anchorY="middle" fontSize={.2} position={[0,3,1]} maxWidth={6} fog={false} >
+              <Text color="white" anchorX="center" anchorY="middle" fontSize={.2} position={[0,4,1]} maxWidth={6} fog={false} >
               <meshBasicMaterial          
                 color={"#FFF"}
                 fog={false}
@@ -105,7 +119,7 @@ export default function Experience() {
             </Float>
 
             <Float rotationIntensity={0.3} floatIntensity={0.5}>
-              <Text color="white" anchorX="center" anchorY="middle" fontSize={.2} position={[0,2,1]} maxWidth={6} >
+              <Text color="white" anchorX="center" anchorY="middle" fontSize={.2} position={[0,3,1]} maxWidth={6} >
               <meshBasicMaterial          
                 color={"#FFF"}
                 fog={false}
@@ -115,7 +129,7 @@ export default function Experience() {
             </Float>
 
             <Float rotationIntensity={0.3} floatIntensity={0.5}>
-              <Text color="white" anchorX="center" anchorY="middle" fontSize={.2} position={[0,1.3,1]} maxWidth={6}>
+              <Text color="white" anchorX="center" anchorY="middle" fontSize={.2} position={[0,2.3,1]} maxWidth={6}>
               <meshBasicMaterial          
                 color={"#FFF"}
                 fog={false}
