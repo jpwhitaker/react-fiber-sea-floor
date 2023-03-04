@@ -30,18 +30,11 @@ export default function Model(props)
   
 
   return (
-    <PivotControls anchor={[0, 0, 0]} onDragEnd ={handleDragEnd}>
+    // <PivotControls anchor={[0, 0, 0]} onDragEnd ={handleDragEnd}>
     <group {...props} dispose={null} ref={meshRef}>
-      {/* <mesh
-        name={props.model}
-        castShadow
-        receiveShadow
-        geometry={nodes[props.model].geometry}
-        material={materials.Material}
-      /> */}
       {meshes}
     </group>
-    </PivotControls>
+    // </PivotControls>
   )
 }
 
