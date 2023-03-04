@@ -4,9 +4,6 @@ import { useRef } from 'react';
 
 export default function Model(props)
 {
-//   const loadedModel = useGLTF(`./meshes/${model}.glb`)
-//   const { nodes, materials } = loadedModel
-
   const { nodes, materials } = useGLTF(`./meshes/${props.model}.glb`);
   const meshRef = useRef();
   const handleDragEnd = () => {
@@ -14,16 +11,35 @@ export default function Model(props)
     debugger
   };
   
+  var meshes = [];
+//   debugger
+  for (const key in nodes){
+    const node = nodes[key];
+    if(node.type === 'Mesh'){
+      meshes.push(
+        <mesh
+        name={node.name}
+        castShadow
+        receiveShadow
+        geometry={nodes[node.name].geometry}
+        material={materials.Material}
+      />
+      )
+    }
+  }
+  
+
   return (
     <PivotControls anchor={[0, 0, 0]} onDragEnd ={handleDragEnd}>
     <group {...props} dispose={null} ref={meshRef}>
-      <mesh
+      {/* <mesh
         name={props.model}
         castShadow
         receiveShadow
         geometry={nodes[props.model].geometry}
         material={materials.Material}
-      />
+      /> */}
+      {meshes}
     </group>
     </PivotControls>
   )

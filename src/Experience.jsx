@@ -5,7 +5,7 @@ import { PerspectiveCamera,ScrollControls, Scroll, Sparkles, useVideoTexture, Te
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { PlainAnimator } from "three-plain-animator/lib/plain-animator"
 import Model from './models/Model'
-import Rock_021 from './component_meshes/Rock_021'
+
 
 function Sprite({ textureSrc, IconPosition, IconSize }) {
   const spriteTexture = useLoader(THREE.TextureLoader, textureSrc)
@@ -48,15 +48,17 @@ export default function Experience() {
             <Float>
               <Model model="Water_Ship_001" scale={1} position={[5,15,-4]} />
             </Float>
-            <Model model="Rock_010" scale={1} position={[-3,0,-12]} />
+            {/* <Model model="Rock_010" scale={1} position={[-3,0,-12]} /> */}
+            <Model model="mountains_001" scale={1} position={[-3,0,-23]} />
             {/* <Model model="Rock_010" scale={1} position={[-3,10,-12]} rotation={[0,3.5,0]}/> */}
-            <Model model="Coral_reef_001" scale={1} position={[0,0,-10]} />
+            <Model model="Coral_reef_001" scale={1} position={[-5,0,-13]} />
             <Model model="Coral_reef_004" scale={1} position={[-5,0,0]} rotation={[0,3.5,0]}/>
             <Model model="Coral_001" scale={3}/>
             <Model model="Coral_001" scale={3} position={[3,0,0]}/>
             {/* <Model model="Rock_021" scale={1} position={[-4.8,3,-2.5]} rotation={[0,.8,0]}/> */}
             <Model model="Rock_021" scale={1} position={[-4.8,3,-2.5]} rotation={[0,.8,0]}/>
             <Model model="Rock_021" scale={1} position={[-8,8.5,-3.5]} rotation={[0,-3,0]}/>
+            <Model model="Coralls_008" scale={1} position={[0,2,0]} rotation={[0,-3,0]}/>
             
             <Float>
               <Text3D font="./Kalam_Bold.json" position={[0,2,0]}>
