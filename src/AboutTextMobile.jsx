@@ -3,7 +3,7 @@ import { Float, Text3D, Text } from "@react-three/drei"
 export default function AboutTextMobile() {
 
     return (
-        <>
+        <group scale={0.65} position={[0,0.6,0]}>
         <Float floatIntensity={0.5}>
         <Text3D font="./Kalam_Bold.json" position={[-2,7,1]} scale={0.8}>
           Oćeane
@@ -51,6 +51,6 @@ export default function AboutTextMobile() {
          {"\n\n"}When I'm not lost in a sea of spectrograms, I'm like to think about ways we can make science more accessible via performance art ways to communally gather & share blue planet stories, cli-fi (climate change sci-fi) & human adaptation.
         </Text>
       </Float>
-      </>
+      </group>
     
 )}
