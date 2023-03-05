@@ -4,17 +4,22 @@ import Model from './models/Model'
 import Jellyfish from './Jellyfish'
 import AboutText from './AboutText'
 import { Perf } from 'r3f-perf'
+import { useControls } from 'leva'
 
 
 export default function Experience() {
   const videoTexture = useVideoTexture("./water_1_lite_1.mp4")
   videoTexture.needsUpdate = true;
+  // const {backgroundColor, perfVisible} = useControls({
+  //   backgroundColor: `#0fa2ab`,
+  //   perfVisible: false
+  // })
 
   return (
     <>
-      <Perf position='top-left'/>
+      {/* {perfVisible ? <Perf position='top-left'/>: null} */}
       <PerspectiveCamera makeDefault position={[0,13,7]} />
-      <fog attach="fog" color={`#0fa2ab`} near={-25} far={50} />
+      <fog attach="fog" color={typeof backgroundColor != 'undefined' ? backgroundColor : "#0fa2ab"} near={-25} far={50} />
       <ambientLight intensity={.5} />
 
       {/* <OrbitControls maxPolarAngle = {Math.PI/2}/> */}
