@@ -51,12 +51,6 @@ export default function AboutText() {
          {"\n\n"}When I'm not lost in a sea of spectrograms, I'm like to think about ways we can make science more accessible via performance art ways to communally gather & share blue planet stories, cli-fi (climate change sci-fi) & human adaptation.
         </Text>
       </Float>
-
-
-      <mesh position-y={0} rotation-x={ - Math.PI * 0.5} scale={250} receiveShadow>
-        <planeGeometry receiveShadow={true}/>
-        <meshStandardMaterial color="yellow"/>
-      </mesh>
       </>
     
 )}
