@@ -20,4 +20,4 @@ export default function Jellyfish(props) {
   );
 }
 
-useGLTF.preload("/Medusa_001.glb");
+useGLTF.preload("./meshes/Medusa_001.glb");

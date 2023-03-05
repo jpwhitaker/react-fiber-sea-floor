@@ -1,7 +1,6 @@
 import { useGLTF, useAnimations, PivotControls } from "@react-three/drei";
 import { useRef } from 'react';
 
-
 export default function Model(props)
 {
   const { nodes, materials } = useGLTF(`./meshes/${props.model}.glb`);
@@ -12,12 +11,13 @@ export default function Model(props)
   };
   
   var meshes = [];
-//   debugger
+
   for (const key in nodes){
     const node = nodes[key];
     if(node.type === 'Mesh'){
       meshes.push(
         <mesh
+        key={node.name}
         name={node.name}
         castShadow
         receiveShadow
@@ -27,7 +27,6 @@ export default function Model(props)
       )
     }
   }
-  
 
   return (
     // <PivotControls anchor={[0, 0, 0]} onDragEnd ={handleDragEnd}>
@@ -38,7 +37,6 @@ export default function Model(props)
   )
 }
 
-// debugger
 if(typeof props !== 'undefined' && typeof props.model !== 'undefined'){
     useGLTF.preload(`./meshes/${props.model}.glb`)
 }
