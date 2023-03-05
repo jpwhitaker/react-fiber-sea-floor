@@ -16,7 +16,7 @@ export default function Experience() {
   // })
 
   return (
-    <>
+    <Suspense>
       {/* {perfVisible ? <Perf position='top-left'/>: null} */}
       <PerspectiveCamera makeDefault position={[0,13,7]} />
       <fog attach="fog" color={typeof backgroundColor != 'undefined' ? backgroundColor : "#0fa2ab"} near={-25} far={50} />
@@ -37,7 +37,7 @@ export default function Experience() {
           {/* Need to position spotlight better */}
           <spotLight position={[0, 20, -20]} intensity={1.5} color="#fff" map={videoTexture} penumbra={0.5} castShadow={false} />
 
-          <Suspense>
+          
             {/* Near Objects */}
             <Float>
               <Model model="Water_Ship_001" scale={1} position={[10,15,-10]} />
@@ -77,9 +77,8 @@ export default function Experience() {
               <planeGeometry receiveShadow={true}/>
               <meshStandardMaterial color="yellow"/>
             </mesh>
-          </Suspense>
         </Scroll>
       </ScrollControls>
-    </>
+    </Suspense>
   )
 }
