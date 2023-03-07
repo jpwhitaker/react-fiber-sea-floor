@@ -22,10 +22,11 @@ export default function ExperienceMobile() {
       <fog attach="fog" color={typeof backgroundColor != 'undefined' ? backgroundColor : "#0fa2ab"} near={-25} far={50} />
       <ambientLight intensity={.5} />
 
-      {/* <OrbitControls maxPolarAngle = {Math.PI/2}/> */}
 
-      <ScrollControls pages={1.8} damping={1}>
-        <Scroll>
+      {/* <ScrollControls pages={1.8} damping={1}> */}
+      <OrbitControls maxPolarAngle = {Math.PI/2}/>
+
+        {/* <Scroll> */}
           <Sparkles
             position={[0,10,0]}
             count = {2000}
@@ -35,7 +36,7 @@ export default function ExperienceMobile() {
             scale = {20}
           />
           {/* Need to position spotlight better */}
-          <spotLight position={[0, 20, -20]} intensity={1.5} color="#fff" map={videoTexture} penumbra={0.5} castShadow={false} />
+          <spotLight position={[0, 20, -20]} target={[0,0,-20]} intensity={1.5} color="#fff" map={videoTexture} penumbra={0.5} castShadow={false} />
 
           
             {/* Near Objects */}
@@ -74,8 +75,8 @@ export default function ExperienceMobile() {
               <planeGeometry receiveShadow={true}/>
               <meshStandardMaterial color="yellow"/>
             </mesh>
-        </Scroll>
-      </ScrollControls>
+        {/* </Scroll> */}
+      {/* </ScrollControls> */}
     </Suspense>
   )
 }

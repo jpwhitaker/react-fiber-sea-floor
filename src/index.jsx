@@ -38,12 +38,13 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
     <StrictMode>
-        <NavBar>
-            <Canvas shadows>
+                    <Canvas shadows>
                 <color attach="background" args={["#0fa2ab"]}/>
                 <Root/>
             </Canvas>
-        </NavBar>
+        {/* <NavBar>
+
+        </NavBar> */}
         
     </StrictMode>
 )
