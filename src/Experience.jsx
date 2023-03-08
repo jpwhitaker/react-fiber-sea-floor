@@ -1,19 +1,15 @@
-import { Suspense } from 'react'
-import { PerspectiveCamera,ScrollControls, Scroll, Sparkles, useVideoTexture, Float,  Cylinder, Sphere } from '@react-three/drei'
+import { Suspense, useMemo } from 'react'
+import { SpotLight } from 'three'
+import { OrbitControls, PerspectiveCamera,ScrollControls, Scroll, Sparkles, useVideoTexture, Float,  Cylinder, Sphere } from '@react-three/drei'
 import Model from './models/Model'
 import Jellyfish from './Jellyfish'
 import AboutText from './AboutText'
 import { Perf } from 'r3f-perf'
 import { useControls } from 'leva'
+import CausticLight from './CausticLight'
 
 
 export default function Experience() {
-  const videoTexture = useVideoTexture("./water_1_lite_1.mp4")
-  videoTexture.needsUpdate = true;
-  // const {backgroundColor, perfVisible} = useControls({
-  //   backgroundColor: `#0fa2ab`,
-  //   perfVisible: false
-  // })
 
   return (
     <Suspense>
@@ -24,6 +20,7 @@ export default function Experience() {
 
       {/* <OrbitControls maxPolarAngle = {Math.PI/2}/> */}
 
+
       <ScrollControls pages={1.8} damping={1}>
         <Scroll>
           <Sparkles
@@ -33,11 +30,9 @@ export default function Experience() {
             opacity = {0.8}
             size = {1}
             scale = {20}
-          />
-          {/* Need to position spotlight better */}
-          <spotLight position={[0, 20, -20]} intensity={1.5} color="#fff" map={videoTexture} penumbra={0.5} castShadow={false} />
-
-          
+          />       
+            {/*Caustic Light - can play around with position*/}
+            <CausticLight/>
             {/* Near Objects */}
             <Float>
               <Model model="Water_Ship_001" scale={1} position={[10,15,-10]} />
@@ -82,3 +77,4 @@ export default function Experience() {
     </Suspense>
   )
 }
+

@@ -22,10 +22,9 @@ export default function ExperienceMobile() {
       <fog attach="fog" color={typeof backgroundColor != 'undefined' ? backgroundColor : "#0fa2ab"} near={-25} far={50} />
       <ambientLight intensity={.5} />
 
-      {/* <OrbitControls maxPolarAngle = {Math.PI/2}/> */}
+      <OrbitControls />
 
-      <ScrollControls pages={1.8} damping={1}>
-        <Scroll>
+
           <Sparkles
             position={[0,10,0]}
             count = {2000}
@@ -74,8 +73,7 @@ export default function ExperienceMobile() {
               <planeGeometry receiveShadow={true}/>
               <meshStandardMaterial color="yellow"/>
             </mesh>
-        </Scroll>
-      </ScrollControls>
+
     </Suspense>
   )
 }
