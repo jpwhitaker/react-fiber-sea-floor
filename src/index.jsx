@@ -16,23 +16,12 @@ const Nav = function() {
 
 
 function Root() {
-    const isDesktop = useMediaQuery('(min-width: 768px)');
-    
-    if (!isDesktop) {
-    
-      return( 
-        <>
-            <ExperienceMobile /> // only render ExperienceMobile on mobile screens
-        </>
-      )
-    }
-  
-    return (
-      <>
-        <Experience />
-      </>
-    );
-  }
+  return (
+    <>
+      <Experience />
+    </>
+  );
+}
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
