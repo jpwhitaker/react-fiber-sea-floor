@@ -12,9 +12,7 @@ export default function CausticLight() {
   } catch (error) {
     console.error('Failed to load video texture', error);
   }
-    console.log("1",<VideoMaterial url={"./water_1_lite.mp4"}/>)
-    console.log("2", videoTexture)
-
+    
 
     const causticLight = useMemo(() => new SpotLight('#fff'), []);
     
@@ -32,9 +30,4 @@ export default function CausticLight() {
     } else {
       return null
     }
-}
-
-function VideoMaterial({ url}) {
-  const texture = useVideoTexture(url)
-  return <meshBasicMaterial map={texture} toneMapped={false} />
 }
