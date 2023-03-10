@@ -1,8 +1,6 @@
 import { useThree } from "@react-three/fiber";
 import { Float, Text } from "@react-three/drei"
-import { useRef, useState, useEffect } from "react";
-
-
+import { useState, useEffect } from "react";
 
 export default function AboutText() {
   const text = [
@@ -14,29 +12,44 @@ export default function AboutText() {
   const [heights, setHeights] = useState([])
   const startingPosition = 5
   const { viewport } = useThree();
+  const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
-  {/* want to set textheight to something like viewport/100 but right now it only calcs the bounding box once so the heights are off */}
+  
   useEffect(() => {
-    console.log('heights updated:', heights);
+    // console.log('heights updated:', heights);
   }, [heights, viewport]);
 
   const TextJSX = text.map((paragraph, i)=>{
     const offset = ((i > 0) && heights.length > 0 ) ? heights.slice(0, i).reduce((a, b) => a + b, 0) : 0
-
+    console.log(viewport.width)
     return(
       <Float rotationIntensity={0.2} floatIntensity={.5} key={i}>
         <Text color="white" 
-        anchorX="center" 
-        anchorY="top" 
-        fontSize={0.2} 
-        position={[0,startingPosition - (offset),1]} 
+        anchorX="left" 
+        anchorY="top"
+        //need to clamp
+        fontSize={clamp(viewport.width / 120, 0.19, 0.3)} 
+        position={[-2.5,startingPosition - (offset),1]}
+        
+        //width of text object, need to clamp
         maxWidth={6}
+
+        //text is async, will run onSync when it gets a height
         onSync={(mesh)=> {
+          // console.log("onsync")
           const visibleBounds = mesh.textRenderInfo.visibleBounds;
           const top = Math.abs(visibleBounds[1])
           const bottom = Math.abs(visibleBounds[3])
           const margin =  + 0.2
-          setHeights(prevHeights => [...prevHeights, (top + bottom + margin)])
+          
+          //heights state will keep building unless it's cleared out.
+          setHeights(prevHeights => {
+            if(prevHeights.length === text.length){
+              return [(top + bottom + margin)];
+            } else {
+              return [...prevHeights, (top + bottom + margin)]}
+            }
+          )
         }}
       >
         <meshBasicMaterial

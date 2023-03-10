@@ -28,8 +28,9 @@ export default function Experience() {
             opacity = {0.8}
             size = {1}
             scale = {20}
-          />       
-          <CausticLight/>  
+          />
+          {/**Caustic light seems to make page error out every 1/20 times */}       
+          {/* <CausticLight/>   */}
           <NearObjects/>
           <AboutText/>
           <FarObjects/>
