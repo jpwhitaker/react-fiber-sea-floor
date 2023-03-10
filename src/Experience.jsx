@@ -30,7 +30,7 @@ export default function Experience() {
             scale = {20}
           />
           {/**Caustic light seems to make page error out every 1/20 times */}       
-          {/* <CausticLight/>   */}
+          <CausticLight/>  
           <NearObjects/>
           <AboutText/>
           <FarObjects/>

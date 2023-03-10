@@ -21,7 +21,7 @@ export default function AboutText() {
 
   const TextJSX = text.map((paragraph, i)=>{
     const offset = ((i > 0) && heights.length > 0 ) ? heights.slice(0, i).reduce((a, b) => a + b, 0) : 0
-    console.log(viewport.width)
+    // console.log(viewport.width)
     return(
       <Float rotationIntensity={0.2} floatIntensity={.5} key={i}>
         <Text color="white" 

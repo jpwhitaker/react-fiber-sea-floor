@@ -1,10 +1,13 @@
 import { useMediaQuery } from "@react-hook/media-query";
-import { Float, Cylinder, Sphere } from "@react-three/drei";
+import { forwardRef, useLayoutEffect } from "react";
+import { Float, Cylinder, Sphere, QuadraticBezierLine} from "@react-three/drei";
 import Model from "./models/Model";
 import Jellyfish from "./Jellyfish";
 
 export default function NearObjects() {
     const isDesktop = useMediaQuery('(min-width: 768px)');
+
+
     return(
         <>
             <Float>
@@ -14,6 +17,7 @@ export default function NearObjects() {
                 position={isDesktop ? [10,15,-10] : [3,15,-10]} 
             />
             </Float>
+
             <Model
               model="Coral_reef_003" 
               scale={1} 
