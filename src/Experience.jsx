@@ -1,6 +1,7 @@
 import { Suspense, useMemo } from 'react'
 import { OrbitControls, PerspectiveCamera,ScrollControls, Scroll, Sparkles, useVideoTexture, Float,  Cylinder, Sphere } from '@react-three/drei'
 import AboutText from './AboutText'
+import AboutTextFlex from './AboutTextFlex'
 import { Perf } from 'r3f-perf'
 import { useControls } from 'leva'
 import CausticLight from './CausticLight'
@@ -32,15 +33,22 @@ export default function Experience() {
           {/**Caustic light seems to make page error out every 1/20 times */}       
           <CausticLight/>  
           <NearObjects/>
-          <AboutText/>
+          
           <FarObjects/>
-
           <mesh position-y={0} rotation-x={ - Math.PI * 0.5} scale={250} receiveShadow>
             <planeGeometry receiveShadow={true}/>
             <meshStandardMaterial color="yellow"/>
           </mesh>
-
         </Scroll>
+
+        <Scroll >
+        <AboutTextFlex/>
+        </Scroll>
+          
+        
+    
+
+        
       </ScrollControls>
     </Suspense>
   )
