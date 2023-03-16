@@ -1,49 +1,37 @@
 import { Suspense } from "react";
 import { useThree } from "@react-three/fiber";
-import { Text, Box, PerspectiveCamera} from "@react-three/drei";
+import { Text, Box, Float} from "@react-three/drei";
 import { Vector3 } from "three";
-
-function Width() {
-  const { viewport } = useThree()
-  const currentViewport = viewport
-  const width = currentViewport.width
-  return (
-    <>
-      <Suspense fallback={<></>}>
-        <Text position={[0, 2, 0]}>
-          {width.toFixed(2)}
-        </Text>
-        {/*maxWidth not working, it should wrap*/}
-        <Text position={[0, 1, 0]} maxWidth={width} anchorY="top" overflowWrap="break-word">
-          {width}
-        </Text>
-      </Suspense>
-    </>
-  )
-}
-
-function Boxes() {
-  const { viewport } = useThree()
-  const currentViewport = viewport
-  const width = currentViewport.width
-  const boxes = []
-  for (let i = 0; i < 10; i++) {
-    const color = i % 2 == 0 ? 'hotPink' : 'turquoise'
-    //Box is set back by 0.5 so the faces are at origin.
-    boxes.push(<Box position={[-(width / 2) + i + 0.5, -2, -0.5]} material-color={color} />)
-  }
-  return boxes
-}
+const startingPosition = 5
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
 export default function AboutTextFlex() {
   
   const { viewport, camera } = useThree();
-  const width = viewport.getCurrentViewport(camera, new Vector3([0,0,0]) )
-  console.log(camera)
+  const zDepth=1
+
+  const width = viewport.getCurrentViewport(camera, [0,camera.position.y,zDepth] ).width
+  console.log(width)
   return (
     <>
-      <Width/>
-      <Boxes/>
+      {/* <Float rotationIntensity={0.2} floatIntensity={.5}> */}
+        <Text color="white" 
+        anchorX="center" 
+        anchorY="top"
+        //need to clamp
+        // fontSize={.3}
+        fontSize={clamp(width*.03, 0.15, 0.3)}
+        position={[0,5,zDepth]}
+        maxWidth={width* 0.6} 
+        
+        >
+        <meshBasicMaterial
+          color={"#FFF"}
+          fog={false}
+        />
+          Ahoy! I'm a Ph.D. student and biophilic technologist at the Scripps Institution of Oceanography in San Diego.
+        </Text>
+      {/* </Float> */}
     </>
   );
 }

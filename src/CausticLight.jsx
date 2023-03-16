@@ -4,7 +4,6 @@ import {useVideoTexture, useTexture } from '@react-three/drei'
 
 export default function CausticLight() {
   let videoTexture = null;
-  let ref = useRef
   {/**There has to be a better way to get the video to load consistently */}
   try {
     videoTexture = useVideoTexture("./water_1_lite_1.mp4");
