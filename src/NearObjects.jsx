@@ -1,8 +1,10 @@
 import { useMediaQuery } from "@react-hook/media-query";
 import { forwardRef, useLayoutEffect } from "react";
 import { Float, Cylinder, Sphere, QuadraticBezierLine} from "@react-three/drei";
+
 import Model from "./models/Model";
 import Jellyfish from "./Jellyfish";
+import { Vector3 } from "three";
 
 export default function NearObjects() {
     const isDesktop = useMediaQuery('(min-width: 768px)');
@@ -10,13 +12,6 @@ export default function NearObjects() {
 
     return(
         <>
-            <Float>
-              <Model
-                model="Water_Ship_001" 
-                scale={1} 
-                position={isDesktop ? [10,15,-10] : [3,15,-10]} 
-            />
-            </Float>
 
             <Model
               model="Coral_reef_003" 
@@ -77,29 +72,6 @@ export default function NearObjects() {
               position={isDesktop ? [-2, 0, 1] : [0, 0, 1]} 
               rotation={[0, .8, 0]}
             />
-
-            <group
-              position={isDesktop ? [0,0,0] : [2, 0, 0]}
-            >
-              <Cylinder 
-                position={[-1,0,1]} 
-                rotation={[0,0,0]} 
-                args={[0.03, 0.03, 1, 32]} 
-                material-color="#222" 
-              />
-              <Cylinder 
-                position={[-1,0.5,1]} 
-                rotation={[1.6,0,1]} 
-                args={[0.04, 0.02, 0.6, 32]} 
-                material-color="#222" 
-              />
-              <Sphere 
-                args={[0.08, 6,6]} 
-                position={[-1.25,0.49,1.15]}
-              >
-                <meshStandardMaterial color="#000"  />
-              </Sphere>
-            </group>
         </>
     )
 }

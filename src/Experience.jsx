@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useMemo } from 'react'
-import { PerspectiveCamera,ScrollControls, Scroll, Sparkles, useVideoTexture, Float,  Cylinder, Sphere } from '@react-three/drei'
+import { PerspectiveCamera, OrbitControls,ScrollControls, Scroll, Sparkles, useVideoTexture, Float,  Cylinder, Sphere } from '@react-three/drei'
 import AboutText from './AboutText'
 import AboutTextFlex from './AboutTextFlex'
 
@@ -7,6 +7,7 @@ import CausticLight from './CausticLight'
 import NearObjects from './NearObjects'
 import FarObjects from './FarObjects'
 import Sand from './Sand'
+import SubAndMic from './SubAndMic'
 
 export default function Experience() {
 
@@ -30,11 +31,12 @@ export default function Experience() {
         {/**Caustic light seems to make page error out every 1/20 times */}       
         <CausticLight/>  
         <NearObjects/>
+        
         <FarObjects/>
         <AboutTextFlex/>
         <Sand/>
       </Scroll>
-      
+      <SubAndMic/>
       </ScrollControls>
     </Suspense>
   )
