@@ -8,6 +8,7 @@ import NearObjects from './NearObjects'
 import FarObjects from './FarObjects'
 import Sand from './Sand'
 import SubAndMic from './SubAndMic'
+import GroundWire from './GroundWire'
 
 export default function Experience() {
 
@@ -35,6 +36,7 @@ export default function Experience() {
         <FarObjects/>
         <AboutTextFlex/>
         <Sand/>
+        <GroundWire/>
       </Scroll>
       <SubAndMic/>
       </ScrollControls>

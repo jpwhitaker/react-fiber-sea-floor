@@ -2,9 +2,6 @@ import { useMediaQuery } from "@react-hook/media-query";
 import { useRef, forwardRef } from "react";
 import { Float, Cylinder, Sphere, QuadraticBezierLine, useScroll, Scroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-
-import Model from "./models/Model";
-import Jellyfish from "./Jellyfish";
 import { Vector3 } from "three";
 import Sub from "./Sub";
 
@@ -23,8 +20,6 @@ export default function SubAndMic() {
         />
         </Scroll>
       </Float>
-
-      
 
       {/**To Sub */}
       <SlackWire
@@ -70,7 +65,6 @@ function SlackWire({ start, mid, end, anchor, sub,v1 = new Vector3() ,v2 = new V
 }
 
 const InvisibleAnchor = forwardRef(({position}, ref)=>{
-  debugger
   return (
     <object3D position={position} ref={ref}/>
   )
@@ -82,7 +76,6 @@ function Mic() {
     <group
       position={isDesktop ? [0.95, 0.2, -0.75] : [2, 0, 0]}
     >
-
       <Cylinder
         position={[-1, 0.02, 1]}
         rotation={[1.6, 0, 1]}
