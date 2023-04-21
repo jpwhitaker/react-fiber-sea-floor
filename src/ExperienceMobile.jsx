@@ -3,8 +3,6 @@ import { PerspectiveCamera,ScrollControls, Scroll, Sparkles, useVideoTexture, Fl
 import Model from './models/Model'
 import Jellyfish from './Jellyfish'
 import AboutTextMobile from './AboutTextMobile'
-import { Perf } from 'r3f-perf'
-import { useControls } from 'leva'
 
 
 export default function ExperienceMobile() {
