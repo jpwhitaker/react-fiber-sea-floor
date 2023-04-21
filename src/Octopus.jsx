@@ -3,7 +3,6 @@ import { useGLTF, MeshWobbleMaterial, MeshDistortMaterial } from "@react-three/d
 
 export default function Octopus_001(props) {
   const { nodes, materials } = useGLTF("./meshes/Octopus_001.glb");
-//   debugger
   return (
     <group {...props} dispose={null}>
       <mesh
