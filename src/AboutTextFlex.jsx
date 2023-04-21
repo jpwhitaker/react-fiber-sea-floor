@@ -20,16 +20,17 @@ export default function AboutTextFlex() {
         anchorY="top"
         //need to clamp
         // fontSize={.3}
-        fontSize={clamp(width*.03, 0.15, 0.3)}
-        position={[0,5,zDepth]}
+        fontSize={clamp(width*.03, 0.2, 0.3)}
+        lineHeight={1.1}
+        letterSpacing={0}
+        position={[0,14,zDepth]}
         maxWidth={width* 0.6} 
-        
         >
         <meshBasicMaterial
           color={"#FFF"}
           fog={false}
         />
-          Ahoy! I'm a Ph.D. student and biophilic technologist at the Scripps Institution of Oceanography in San Diego.
+          CollectivSea is an immersive art collective reimagining science education through interactive experiences.
         </Text>
       {/* </Float> */}
     </>

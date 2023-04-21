@@ -35,7 +35,7 @@ export default function Experience() {
         <FarObjects/>
         <AboutTextFlex/>
         <Sand/>
-        <GroundWire/>
+        {/* <GroundWire/> */}
       </Scroll>
       <SubAndMic/>
       </ScrollControls>

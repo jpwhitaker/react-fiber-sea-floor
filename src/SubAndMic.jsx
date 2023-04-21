@@ -20,18 +20,8 @@ export default function SubAndMic() {
         />
         </Scroll>
       </Float>
-
-      {/**To Sub */}
-      <SlackWire
-        start={[10, 15, -10]}
-        mid={new Vector3(12, 3, -12)}
-        end={[8, 0.5, -8]}
-        sub={subRef}
-        anchor={anchorRef}
-      />
       <Scroll>
       <Mic />
-      <InvisibleAnchor position={new Vector3(0.2,0.2,0)} ref={anchorRef}/>
       </Scroll>
     </>
   )
